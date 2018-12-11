@@ -1,6 +1,6 @@
-package com.imooc.sell.repository;
+package com.imooc.repository;
 
-import com.imooc.sell.dataobject.ProductCategory;
+import com.imooc.dataobject.ProductCategory;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,11 +10,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.transaction.Transactional;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

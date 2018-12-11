@@ -1,8 +1,8 @@
-package com.imooc.sell.service.impl;
+package com.imooc.service.impl;
 
-import com.imooc.sell.dataobject.ProductCategory;
-import com.imooc.sell.repository.ProductCategoryRepository;
-import com.imooc.sell.service.CategoryService;
+import com.imooc.dataobject.ProductCategory;
+import com.imooc.repository.ProductCategoryRepository;
+import com.imooc.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

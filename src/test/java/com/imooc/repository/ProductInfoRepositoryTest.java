@@ -1,7 +1,6 @@
-package com.imooc.sell.repository;
+package com.imooc.repository;
 
-import com.imooc.sell.dataobject.ProductInfo;
-import jdk.internal.dynalink.linker.LinkerServices;
+import com.imooc.dataobject.ProductInfo;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

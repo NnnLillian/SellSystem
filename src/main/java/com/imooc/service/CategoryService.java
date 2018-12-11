@@ -1,6 +1,6 @@
-package com.imooc.sell.service;
+package com.imooc.service;
 
-import com.imooc.sell.dataobject.ProductCategory;
+import com.imooc.dataobject.ProductCategory;
 
 import java.util.List;
 
