@@ -13,7 +13,8 @@ public enum ProductStatusEnum {
 
     private String message;
 
-    ProductStatusEnum(Integer code, String message){
+    ProductStatusEnum(Integer code, String message) {
         this.code = code;
+        this.message = message;
     }
 }

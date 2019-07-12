@@ -11,7 +11,7 @@ public interface ProductService {
 
 //    查询所有在架商品列表
     List<ProductInfo> findUpAll();
-//    查找时用Pageable将商品栏目分页
+//    管理员查找时用Pageable将商品栏目分页
     Page<ProductInfo> findAll(Pageable pageable);
 
     ProductInfo save(ProductInfo productInfo);

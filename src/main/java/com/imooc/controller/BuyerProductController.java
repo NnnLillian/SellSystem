@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/buyer/product")
@@ -33,11 +34,14 @@ public class BuyerProductController {
 //        1. 查询所有的上架商品
         List<ProductInfo> productInfoList = productService.findUpAll();
 
-//        2. 查询类目（一次性查询）
-        List<Integer> categoryTypeList = new ArrayList<>();
-        for (ProductInfo productInfo : productInfoList){
-            categoryTypeList.add(productInfo.getCategoryType());
-        }
+//        2. 查询类目（一次性查询）传统方法
+//        List<Integer> categoryTypeList = new ArrayList<>();
+//
+//        for (ProductInfo productInfo : productInfoList){
+//            categoryTypeList.add(productInfo.getCategoryType());
+//        }
+//         2. 查询类目（一次性查询）精简方法（java8
+        List<Integer> categoryTypeList=productInfoList.stream().map(e -> e.getCategoryType()).collect(Collectors.toList());
         List<ProductCategory> productCategoryList = categoryService.findByCategoryTypeIn(categoryTypeList);
 
 //        3. 数据拼装

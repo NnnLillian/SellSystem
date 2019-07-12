@@ -22,14 +22,14 @@ public class ProductCategoryRepositoryTest {
 
     @Test
     public void findOneTest(){
-        ProductCategory productCategory = repository.findOne(1);
+        ProductCategory productCategory = repository.findById(1).orElse(null);
         System.out.println(productCategory.toString());
     }
 
     @Test
     @Transactional
     public void saveTest(){
-        ProductCategory productCategory = new ProductCategory("女生最爱",3);
+        ProductCategory productCategory = new ProductCategory("女生最爱",5);
         ProductCategory result = repository.save(productCategory);
         Assert.assertNotNull(result);
     }
@@ -39,7 +39,7 @@ public class ProductCategoryRepositoryTest {
         List<Integer> list = Arrays.asList(2,3,4);
 
         List<ProductCategory> result = repository.findByCategoryTypeIn(list);
-        Assert.assertNotEquals(0,result.size());
+        Assert.assertNotNull(result);
     }
 
 }
