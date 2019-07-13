@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @author: Lillian
- * @create: 2019-07-13 09:28
- * @description: OrderMaster转换为OrderDTO
+ * author: Lillian
+ * create: 2019-07-13 09:28
+ * description: OrderMaster转换为OrderDTO
  */
 public class OrderMaster2OrderDTOConverter {
 
