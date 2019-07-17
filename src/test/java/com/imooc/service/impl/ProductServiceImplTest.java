@@ -47,11 +47,11 @@ public class ProductServiceImplTest {
     public void save() {
         ProductInfo productInfo = new ProductInfo();
 
-        productInfo.setProductId("123457");
-        productInfo.setProductName("皮皮虾");
-        productInfo.setProductPrice(new BigDecimal(3.2));
+        productInfo.setProductId("123450");
+        productInfo.setProductName("芒果冰沙");
+        productInfo.setProductPrice(new BigDecimal(4.8));
         productInfo.setProductStock(100);
-        productInfo.setProductDescription("很好喝的虾");
+        productInfo.setProductDescription("冰冰凉凉");
         productInfo.setProductIcon("http://xxxxx.jpg");
         productInfo.setProductStatus(ProductStatusEnum.DOWN.getCode());
         productInfo.setCategoryType(2);
