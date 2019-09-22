@@ -9,7 +9,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 123456
-    url: jdbc:mysql://192.168.3.21/sell?characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://192.168.1.102/sell?characterEncoding=utf-8&useSSL=false
   jpa:
     show-sql: true
 #    jackson的这个non_null 属性使得在json字符串中为null的字符串都不会显示
@@ -19,3 +19,7 @@ spring:
 server:
   servlet:
     context-path:  /sell
+
+wechat:
+  mpAppId: wxbe91ae8388f6a0f2
+  mpAppSecret: 8015383f0d10e9bde38f0e3952d37138
