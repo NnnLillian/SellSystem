@@ -13,6 +13,7 @@ import com.imooc.exception.SellException;
 import com.imooc.repository.OrderDetailRepository;
 import com.imooc.repository.OrderMasterRepository;
 import com.imooc.service.OrderService;
+import com.imooc.service.PayService;
 import com.imooc.service.ProductService;
 import com.imooc.utils.KeyUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -45,6 +46,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private OrderMasterRepository orderMasterRepository;
+
+    @Autowired
+    private PayService payService;
 
     @Override
     @Transactional
@@ -149,7 +153,7 @@ public class OrderServiceImpl implements OrderService {
 
 // 如果已支付，需要退款
         if (orderDTO.getPayStatus().equals(PayStatusEnum.SUCCESS.getCode())) {
-            //TODO
+            payService.refund(orderDTO);
         }
 
         return orderDTO;
@@ -167,8 +171,8 @@ public class OrderServiceImpl implements OrderService {
 
         // 修改订单状态
         orderDTO.setOrderStatus(OrderStatusEnum.FINISHED.getCode());
-        OrderMaster orderMaster =new OrderMaster();
-        BeanUtils.copyProperties(orderDTO,orderMaster);
+        OrderMaster orderMaster = new OrderMaster();
+        BeanUtils.copyProperties(orderDTO, orderMaster);
         OrderMaster updateResult = orderMasterRepository.save(orderMaster);
         if (updateResult == null) {
             log.error("【完结订单】更新失败m orderMaster={}", orderMaster);
@@ -189,15 +193,15 @@ public class OrderServiceImpl implements OrderService {
         }
 
         // 判断订单支付状态
-        if (!orderDTO.getPayStatus().equals(PayStatusEnum.WAIT.getCode())){
+        if (!orderDTO.getPayStatus().equals(PayStatusEnum.WAIT.getCode())) {
             log.error("【订单支付完成】订单支付状态不正确，orderDTO={}", orderDTO);
             throw new SellException(ResultEnum.ORDER_PAY_STATUS_ERROR);
         }
 
         // 修改订单支付状态
         orderDTO.setPayStatus(PayStatusEnum.SUCCESS.getCode());
-        OrderMaster orderMaster =new OrderMaster();
-        BeanUtils.copyProperties(orderDTO,orderMaster);
+        OrderMaster orderMaster = new OrderMaster();
+        BeanUtils.copyProperties(orderDTO, orderMaster);
         OrderMaster updateResult = orderMasterRepository.save(orderMaster);
         if (updateResult == null) {
             log.error("【订单支付完成】更新失败m orderMaster={}", orderMaster);
