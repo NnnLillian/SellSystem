@@ -44,7 +44,7 @@ public class PayController {
         map.put("payResponse", payResponse);
         map.put("returnUrl", returnUrl);
 
-        return new ModelAndView("pay/create");
+        return new ModelAndView("pay/create", map);
 
     }
 
@@ -54,8 +54,11 @@ public class PayController {
      * @param notifyData
      */
     @PostMapping("/notify")
-    public void notify(@RequestBody String notifyData) {
+    public ModelAndView notify(@RequestBody String notifyData) {
 
         payService.notify(notifyData);
+
+        // 返回给微信处理结果
+        return new ModelAndView("pay/success");
     }
 }
