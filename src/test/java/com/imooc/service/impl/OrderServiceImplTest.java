@@ -31,7 +31,7 @@ public class OrderServiceImplTest {
     private final String ORDER_ID = "1562941599765536945";
 
     @Test
-    public void create(){
+    public void create() {
         OrderDTO orderDTO = new OrderDTO();
         orderDTO.setBuyerName("廖师兄");
         orderDTO.setBuyerAddress("幕课网");
@@ -65,7 +65,7 @@ public class OrderServiceImplTest {
     }
 
     @Test
-    public void findList(){
+    public void findList() {
         PageRequest pageRequest = PageRequest.of(0, 2);
         Page<OrderDTO> orderDTOPage = orderService.findList(BUYER_OPENID, pageRequest);
         Assert.assertNotEquals(0, orderDTOPage.getTotalElements());
@@ -90,5 +90,12 @@ public class OrderServiceImplTest {
         OrderDTO orderDTO = orderService.findOne(ORDER_ID);
         OrderDTO result = orderService.paid(orderDTO);
         Assert.assertEquals(PayStatusEnum.SUCCESS.getCode(), result.getPayStatus());
+    }
+
+    @Test
+    public void list() {
+        PageRequest pageRequest = PageRequest.of(0,2);
+        Page<OrderDTO> orderDTOPage = orderService.findList(pageRequest);
+        Assert.assertNotEquals(0, orderDTOPage.getTotalElements());
     }
 }
