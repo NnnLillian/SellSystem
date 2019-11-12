@@ -22,6 +22,7 @@ public enum ResultEnum {
     ORDER_DETAIL_EMPTY(16, "订单详情为空"),
     ORDER_PAY_STATUS_ERROR(17,"订单支付状态不正确"),
     ORDER_CANCEL_SUCCESS(22,"订单取消成功"),
+    ORDER_FINISH_SUCCESS(23,"订单完结成功"),
 
     CART_EMPTY(18,"购物车为空"),
 
