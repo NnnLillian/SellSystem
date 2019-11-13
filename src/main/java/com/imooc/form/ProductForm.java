@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 /**
  * author: Lillian
  * create: 2019-11-13 18:54
- * description: 修改/新增商品内容
+ * description: 商品内容表单
  */
 @Data
 public class ProductForm {
