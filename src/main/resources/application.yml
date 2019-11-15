@@ -33,3 +33,7 @@ wechat:
   keyPath: ./static/h5.p12
 #  URL接收微信的异步通知
   notifyUrl: http://sell35.natapp1.cc/sell/pay/notify
+
+  #  微信登陆
+  openAppId: wxd2352345
+  openAppSecret: 2423483f0d10e9bde38f0e3952348
