@@ -1,5 +1,6 @@
 package com.imooc.controller;
 
+import com.imooc.config.ProjectUrlConfig;
 import com.imooc.enums.ResultEnum;
 import com.imooc.exception.SellException;
 import lombok.extern.slf4j.Slf4j;
@@ -33,11 +34,14 @@ public class WechatController {
     @Autowired
     private WxMpService wxOpenService;
 
+    @Autowired
+    private ProjectUrlConfig projectUrlConfig;
+
     @GetMapping("/authorize")
     public String authorize(@RequestParam("returnUrl") String returnUrl) {
         // 1.配置
         // 2.调用方法
-        String url = "http://sell35.natapp1.cc/sell/wechat/userInfo";
+        String url = projectUrlConfig.getWechatMpAuthorize() + "/sell/wechat/userInfo";
         String redirectUrl = wxMpService.oauth2buildAuthorizationUrl(url, WxConsts.OAUTH2_SCOPE_BASE, URLEncoder.encode(returnUrl));
         log.info("【微信网页授权】获取code, result={}", redirectUrl);
 
@@ -62,7 +66,7 @@ public class WechatController {
 
     @GetMapping("/qrAuthorize")
     public String qrAuthorize(@RequestParam("returnUrl") String returnUrl) {
-        String url = "http://sell35.natapp1.cc/sell/wechat/qrUserInfo";
+        String url = projectUrlConfig.getWechatOpenAuthorize() + "sell/wechat/qrUserInfo";
         String redirectUrl = wxOpenService.buildQrConnectUrl(url, WxConsts.QRCONNECT_SCOPE_SNSAPI_LOGIN, URLEncoder.encode(returnUrl));
         return "redirect:" + redirectUrl;
     }

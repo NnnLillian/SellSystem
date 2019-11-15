@@ -37,3 +37,8 @@ wechat:
   #  微信登陆
   openAppId: wxd2352345
   openAppSecret: 2423483f0d10e9bde38f0e3952348
+
+projectUrl:
+  wechatMpAuthorize: http://sell35.natapp1.cc
+  wechatOpenAuthorize: http://sell35.natapp1.cc
+  sell:
