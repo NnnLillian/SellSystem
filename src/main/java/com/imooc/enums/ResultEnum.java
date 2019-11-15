@@ -15,7 +15,7 @@ public enum ResultEnum {
 
     PRODUCT_NOT_EXIST(10, "商品不存在"),
     PRODUCT_STOCK_ERROR(11, "商品库存不正确"),
-    PRODUCT_STATUS_ERROR(23,"商品状态不正确"),
+    PRODUCT_STATUS_ERROR(24,"商品状态不正确"),
 
 
     ORDER_NOT_EXIST(12, "订单不存在"),
@@ -33,7 +33,9 @@ public enum ResultEnum {
 
     WECHAT_MP_ERROR(20,"微信公众账号方面错误"),
 
-    WXPAY_NOTIFY_MONEY_VERIFY_ERROR(21,"微信支付异步通知金额校验不通过")
+    WXPAY_NOTIFY_MONEY_VERIFY_ERROR(21,"微信支付异步通知金额校验不通过"),
+
+    LOGIN_FAIL(25,"登陆失败，登陆信息不正确")
     ;
     private Integer code;
     private String message;
