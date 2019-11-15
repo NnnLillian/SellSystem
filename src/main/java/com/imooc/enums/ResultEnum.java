@@ -35,7 +35,8 @@ public enum ResultEnum {
 
     WXPAY_NOTIFY_MONEY_VERIFY_ERROR(21,"微信支付异步通知金额校验不通过"),
 
-    LOGIN_FAIL(25,"登陆失败，登陆信息不正确")
+    LOGIN_FAIL(25,"登陆失败，登陆信息不正确"),
+    LOGOUT_SUCCESS(26,"登出成功")
     ;
     private Integer code;
     private String message;
