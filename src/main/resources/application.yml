@@ -43,8 +43,12 @@ wechat:
   openAppId: wxd2352345
   openAppSecret: 2423483f0d10e9bde38f0e3952348
 
+  #  微信模版ID
+  templateId:
+    orderStatus: -OFFfc7hxWb84kKV80EsFSk_-CXbNQfT_jXd9hydGN8
+
 projecturl:
   wechatMpAuthorize: http://sell35.natapp1.cc
   wechatOpenAuthorize: http://sell35.natapp1.cc
-#  sell: http://sell35.natapp1.cc
+  #  sell: http://sell35.natapp1.cc
   sell: http://127.0.0.1:8080
